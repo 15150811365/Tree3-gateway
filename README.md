@@ -48,6 +48,14 @@ ssh -N -L 18081:127.0.0.1:18081 -L 18080:127.0.0.1:18080 -L 19090:127.0.0.1:1909
 - 定制面板：`http://127.0.0.1:18080`；如需代理，导入并激活配置，在 Sub2API 里给对应账号填写 `http://mihomo:监听端口`。
 - Codex 可在项目中调用 [`$tree3-gateway-install`](.agents/skills/tree3-gateway-install/SKILL.md) 按同一流程部署。安装器不迁移旧账号、数据库或订阅。
 
+### 给 Codex 的安装提示词
+
+把 `<新服务器 IP>` 换成实际地址，再将下面这段发给 Codex：
+
+> 查看 https://github.com/jasonmin1365/Tree3-gateway 的 README，按「在新服务器上一键安装」的步骤，在我已打开的 SSH 终端里安装。目标服务器是 `<新服务器 IP>`，系统是 Ubuntu 22.04 LTS 或更新版本（x86_64）。我批准在这台新服务器上执行仓库的安装命令，不要操作旧服务器，也不要迁移旧数据。如果目标不符或安装报错，就停下来告诉我。
+
+如果还没打开 SSH，把「在我已打开的 SSH 终端里安装」改成「只发安装命令给我，我手动粘贴执行」。不要在聊天里发送 SSH 密码。
+
 ## 使用归档
 
 - `packages/sub2api-v0.2.21.tar.gz` 是 GitHub 标签 `v0.2.21` 的源码归档，包含 `deploy/` 中的官方 Compose 和配置示例。使用官方 Compose 示例时，把 Sub2API 的镜像固定为 `ghcr.io/wei-shaw/sub2api:0.2.21`，避免随 `latest` 漂移。
